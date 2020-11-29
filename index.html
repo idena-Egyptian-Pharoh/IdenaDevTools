@@ -1,0 +1,388 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="./css/bootstrap-dark.min.css">
+    <link rel="stylesheet" href="./css/toastr.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <title>Idena Tools Kit</title>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark mb-5" style="background-color:rgb(47, 50, 51)!important;">
+        <div class="container">
+            <a class="navbar-brand ml-2" href="#">Idena Tools Kit</a>
+        </div>
+    </nav>
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card card-body">
+                    <p class="m-0">Hello , Please Donate to 0x869fa4caca1f74fe20e5d95cbb95d63bf58a3cc2</p>
+                </div>
+                <hr>
+                <div class="row m-0">
+                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>Encrypt a PrivateKey</p>
+                            <small class="form-text m-0 mb-1">PrivateKey </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block1-pk"
+                                placeholder="PrivateKey (64)">
+                            <small class="form-text m-0 mb-1">Password </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block1-pass"
+                                placeholder="Password">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock1();">Encrypt</a>
+                            <small class="form-text m-0 mb-1">Output </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block1Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>Decrypt an encrypted PrivateKey</p>
+                            <small class="form-text m-0 mb-1">Encrypted PrivateKey</small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block2-pk"
+                                placeholder="PrivateKey (120)">
+                            <small class="form-text m-0 mb-1">Password </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block2-pass"
+                                placeholder="Password">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock2();">Decrypt</a>
+                            <small class="form-text m-0 mb-1">Output </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block2Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputD();">Copy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm col-12-xs p-2">
+                        <div class="card card-body">
+                            <p>Encode a RawTx</p>
+                            <div class="form-group row mb-1">
+                                <label for="block3-type" class="col-sm-3 col-form-label pb-0">Type</label>
+                                <div class="col-sm-9 pb-0">
+                                    <select class="form-control form-control-sm" id="block3-type">
+                                        <option value="0">SendTx</option>
+                                        <option value="1">ActivationTx</option>
+                                        <option value="2">InviteTx</option>
+                                        <option value="3">KillTx</option>
+                                        <option value="4">SubmitFlipTx</option>
+                                        <option value="5">SubmitAnswersHashTx</option>
+                                        <option value="6">SubmitShortAnswersTx</option>
+                                        <option value="7">SubmitLongAnswersTx</option>
+                                        <option value="8">EvidenceTx</option>
+                                        <option value="9">OnlineStatusTx</option>
+                                        <option value="10">KillInviteeTx</option>
+                                        <option value="11">ChangeGodAddressTx</option>
+                                        <option value="12">BurnTx</option>
+                                        <option value="13">ChangeProfileTx</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block3-to" class="col-sm-3 col-form-label pb-0">To</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block3-to" value=""></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block3-amount" class="col-sm-3 col-form-label pb-0">Amount</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block3-amount" value=""></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block3-maxfee" class="col-sm-3 col-form-label pb-0">Max Fee</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block3-maxfee" value=""></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block3-tips" class="col-sm-3 col-form-label pb-0">Tips</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block3-tips" value=""></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block3-nonce" class="col-sm-3 col-form-label pb-0">Nonce</label>
+                                <div class="col-sm-9 pb-0 input-group">
+                                    <input class="form-control form-control-sm" type="text" id="block3-nonce" value="">
+                                    <div class="input-group-append input-group-sm">
+                                        <a class="btn btn-outline-info btn-sm" type="button" onclick="">Fetch</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block3-epoch" class="col-sm-3 col-form-label pb-0">Epoch</label>
+                                <div class="col-sm-9 pb-0 input-group">
+                                    <input class="form-control form-control-sm" type="text" id="block3-epoch" value="">
+                                    <div class="input-group-append input-group-sm">
+                                        <a class="btn btn-outline-info btn-sm" type="button" onclick="">Fetch</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block3-payload" class="col-sm-3 col-form-label pb-0">Payload</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block3-payload" value=""></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block3-signature" class="col-sm-3 col-form-label pb-0">Signature</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block3-signature" value=""></div>
+                            </div>
+                            <a class="btn btn-outline-info btn-sm btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock3();">Encode</a>
+                            <small class="form-text m-0 mb-1">Output </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block3Output" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>Decode a RawTx</p>
+                            <small class="form-text m-0 mb-1">Input</small>
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control form-control-sm" id="block4Input" value=""
+                                    placeholder="Input">
+                            </div>
+                            <div class="ml-auto mr-auto row mb-1">
+                                <a class="btn btn-outline-info btn-sm m-1" onclick="Eblock4();">Decode</a>
+                                <a class="btn btn-outline-success btn-sm m-1" onclick="">Send</a>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-type" class="col-sm-3 col-form-label pb-0">Type</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block4-type" value="" disabled></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-to" class="col-sm-3 col-form-label pb-0">To</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block4-to" value="" disabled></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-amount" class="col-sm-3 col-form-label pb-0">Amount</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block4-amount" value="" disabled></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-maxFee" class="col-sm-3 col-form-label pb-0">Max Fee</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block4-maxFee" value="" disabled></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-tips" class="col-sm-3 col-form-label pb-0">Tips</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block4-tips" value="" disabled></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-nonce" class="col-sm-3 col-form-label pb-0">Nonce</label>
+                                <div class="col-sm-9 pb-0">
+                                    <input class="form-control form-control-sm" type="text" id="block4-nonce" value=""
+                                        disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-epoch" class="col-sm-3 col-form-label pb-0">Epoch</label>
+                                <div class="col-sm-9 pb-0">
+                                    <input class="form-control form-control-sm" type="text" id="block4-epoch" value=""
+                                        disabled>
+                                </div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-payload" class="col-sm-3 col-form-label pb-0">Payload</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block4-payload" value="" disabled></div>
+                            </div>
+                            <div class="form-group row mb-1">
+                                <label for="block4-signature" class="col-sm-3 col-form-label pb-0">Signature</label>
+                                <div class="col-sm-9 pb-0"><input class="form-control form-control-sm" type="text"
+                                        id="block4-signature" value="" disabled></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>Sign RawTx</p>
+                            <small class="form-text m-0 mb-1">RawTx</small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block5-rawTx"
+                                placeholder="RawTx">
+                            <small class="form-text m-0 mb-1">PrivateKey </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block5-pk"
+                                placeholder="PrivateKey (64)">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock5();">Encrypt</a>
+                            <small class="form-text m-0 mb-1">Output </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block5Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>Paper Wallet to PrivateKey</p>
+                            <small class="form-text m-0 mb-1">Paper Wallet</small>
+                            <textarea type="text" class="form-control form-control-sm mb-1" id="block6-paper"
+                                placeholder="Paper Wallet (24 word)" rows="4"></textarea>
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock6();">Convert</a>
+                            <small class="form-text m-0 mb-1">PrivateKey </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block6Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>PrivateKey to Address/PubKey/Paper</p>
+                            <small class="form-text m-0 mb-1">PrivateKey </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block7-pk"
+                                placeholder="PrivateKey (64)">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock7();">Convert</a>
+                            <small class="form-text m-0 mb-1">Address </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block7Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+                            <small class="form-text m-0 mb-1">PubKey </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block7Output2" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+                            <small class="form-text m-0 mb-1">Paper Wallet (24) </small>
+                            <div class="input-group mb-3">
+                                <textarea type="text" class="form-control form-control-sm" id="block7Output3" rows="3"
+                                    value="" placeholder="..." disabled></textarea>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>PublicKey to Address</p>
+                            <small class="form-text m-0 mb-1">PublicKey </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block8-pubKey"
+                                placeholder="PublicKey (130)">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock8();">Convert</a>
+                            <small class="form-text m-0 mb-1">Address </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block8Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card card-body mt-3">
+                            <p>String To Hex</p>
+                            <small class="form-text m-0 mb-1">String </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block9-string"
+                                placeholder="String">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock9();">Convert</a>
+                            <small class="form-text m-0 mb-1">Hex </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block9Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyOutputE();">Copy</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-lg-12 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>Seed(BIP39 Mnemonic) to Addresses/PrivateKeys</p>
+
+                            <div class="form-row ">
+                                <div class="col-10">
+                                    <small id="OT-SeedToAddresses2-text" class="form-text m-0 mb-1">Seed(BIP39
+                                        Mnemonic)</small>
+                                    <input type="text" class="form-control form-control-sm" id="block10-seed"
+                                        placeholder="Seed (12/24 word)">
+
+                                </div>
+                                <div class="col-1">
+                                    <small id="OT-SeedToAddresses2-text" class="form-text m-0 mb-1">index</small>
+                                    <input class="form-control form-control-sm" value="0" type="number"
+                                        id="block10-index">
+
+                                </div>
+                                <div class="col-1">
+                                    <small id="OT-SeedToAddresses2-text" class="form-text m-0 mb-1">Count</small>
+                                    <input class="form-control form-control-sm" value="3" type="number"
+                                        id="block10-count">
+                                </div>
+
+                            </div>
+
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock10();">Get</a>
+                            <br>
+                            <textarea id="block10Output1" style="background-color: rgb(52, 58, 64); color: white;"
+                                rows="3" disabled>
+...
+                                </textarea>
+                        </div>
+
+                    </div>
+
+                </div>
+                <hr>
+            </div>
+        </div>
+    </div>
+    <script src="./js/jquery-3.5.1.min.js"></script>
+    <script src="./js/popper.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/toastr.min.js"></script>
+    <script src="./js/script.js"></script>
+    <script src="./js/bundle.js"></script>
+</body>
+
+</html>
