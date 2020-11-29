@@ -13,14 +13,11 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
-function CopyOutputE() {
-  copy(document.getElementById("EN-Output").value);
-
+function CopyElem(elem) {
+  copyT(document.getElementById(elem).value);
 }
 
-
-
-function copy(text) {
+function copyT(text) {
   if (text.length < 1) {
     toastr.error('There is nothing to copy ');
     return
