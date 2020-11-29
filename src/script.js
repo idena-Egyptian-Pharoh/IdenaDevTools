@@ -12,7 +12,9 @@ exports.privateKeyToAddress = function (privateKey) {
   let pubKey = Buffer.from(secp256k1.publicKeyCreate(hexToUint8Array(privateKey), false));
   return '0x' + (keccak256(Buffer.from(secp256k1.publicKeyConvert(pubKey, false).slice(1))).slice(-20).toString('hex'))
 }
-
+exports.randomPK = function(){
+return toHexString(randomBytes(32));
+}
 exports.pubKeyToAddress = function (pubKey) {
   pubKey = pubKey.slice(0, 2) !== '0x' ? '0x' + pubKey : pubKey
   return '0x' + (keccak256(Buffer.from(hexToUint8Array(pubKey))).slice(-20).toString('hex'));

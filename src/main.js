@@ -5,13 +5,19 @@ const {
     privateKeyToAddress,
     pubKeyToAddress,
     privateKeyToPubKey,
-    toHex
+    toHex,
+    randomPK
 } = require('./script.js');
 const {
     hdkey
 } = require('ethereumjs-wallet');
 let bip39 = require("bip39");
-
+Window.randomPrivateKey = function () {
+    return randomPK();
+}
+Window.randomSeed = function () {
+    return bip39.generateMnemonic();
+}
 
 function toHexString(byteArray) {
     return Array.from(byteArray, function (byte) {
@@ -19,20 +25,20 @@ function toHexString(byteArray) {
     }).join('')
 }
 Window.Wblock1 = function () {
-    
+
     let pk = document.getElementById('block1-pk').value;
     let pass = document.getElementById('block1-pass').value;
     document.getElementById('block1Output1').value = encryptPrivateKey(pk, pass);
 }
 Window.Wblock2 = function () {
-    
+
     let pk = document.getElementById('block2-pk').value;
     let pass = document.getElementById('block2-pass').value;
     document.getElementById('block2Output1').value = decryptPrivateKey(pk, pass);
 }
 
 Window.Wblock3 = function () {
-    
+
     let nonce = document.getElementById('block3-nonce').value;
     let epoch = document.getElementById('block3-epoch').value;
     let e = document.getElementById("block3-type");
@@ -60,7 +66,7 @@ Window.Wblock3 = function () {
 }
 
 Window.Wblock4 = function () {
-    
+
     alert(new Transaction().fromHex(document.getElementById('block4Input').value).toJson());
     let tx = JSON.parse(new Transaction().fromHex(document.getElementById('block4Input').value).toJson());
     document.getElementById('block4-nonce').value = tx.nonce;

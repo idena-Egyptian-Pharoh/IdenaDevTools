@@ -261,9 +261,16 @@
                     <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
                         <div class="card card-body">
                             <p>PrivateKey to Address/PubKey/Paper</p>
+                            
                             <small class="form-text m-0 mb-1">PrivateKey </small>
-                            <input type="text" class="form-control form-control-sm mb-1" id="block7-pk"
-                                placeholder="PrivateKey (64)">
+                                <div class="input-group mb-3">
+                                    <input type="text" class="form-control form-control-sm mb-1" id="block7-pk"
+                                    placeholder="PrivateKey (64)">
+                                    <div class="input-group-append input-group-sm">
+                                        <a class="btn btn-outline-info btn-sm" type="button"
+                                            onclick="randomPrivateKeyToElem('block7-pk');">Random</a>
+                                    </div>
+                                </div>
                             <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
                                 onclick="Eblock7();">Convert</a>
                             <small class="form-text m-0 mb-1">Address </small>
@@ -343,8 +350,15 @@
                                 <div class="col-10">
                                     <small id="OT-SeedToAddresses2-text" class="form-text m-0 mb-1">Seed(BIP39
                                         Mnemonic)</small>
-                                    <input type="text" class="form-control form-control-sm" id="block10-seed"
+                                    
+                                        <div class="input-group mb-3">
+                                            <input type="text" class="form-control form-control-sm" id="block10-seed"
                                         placeholder="Seed (12/24 word)">
+                                            <div class="input-group-append input-group-sm">
+                                                <a class="btn btn-outline-info btn-sm" type="button"
+                                                    onclick="randomSeedToElem('block10-seed');">Random</a>
+                                            </div>
+                                        </div>
 
                                 </div>
                                 <div class="col-1">

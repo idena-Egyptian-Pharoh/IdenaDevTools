@@ -13,6 +13,12 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
+function randomPrivateKeyToElem(elem){
+  document.getElementById(elem).value = Window.randomPrivateKey();
+}
+function randomSeedToElem(elem){
+  document.getElementById(elem).value = Window.randomSeed();
+}
 function CopyElem(elem) {
   copyT(document.getElementById(elem).value);
 }
@@ -38,8 +44,6 @@ function Eblock2() {
   } else {
     toastr.error('Error : The Encrypted PrivateKey is not 120 length');
   }
-
-
 }
 
 function Eblock1() {
@@ -66,11 +70,9 @@ function Eblock6() {
   Window.Wblock6();
 }
 
-
 function Eblock7() {
   Window.Wblock7();
 }
-
 
 function Eblock8() {
   Window.Wblock8();
