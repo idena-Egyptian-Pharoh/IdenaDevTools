@@ -1,4 +1,4 @@
-const keccak256 = require('js-sha3').keccak256;;
+const keccak256 = require('keccak256');
 const {
   createDecipheriv,
   createCipheriv,
@@ -112,7 +112,7 @@ exports.toHex = function (string){
 }
 exports.encryptPrivateKey = function (data, passphrase) {
 
-  const key = Buffer.from(keccak256.array(passphrase));
+  const key = Buffer.from(hexToUint8Array(keccak256(passphrase)));
   const dataArray = Buffer.from(
     typeof data === 'string' ? hexToUint8Array(data) : new Uint8Array(data)
   )
@@ -133,7 +133,7 @@ exports.encryptPrivateKey = function (data, passphrase) {
 
 exports.decryptPrivateKey = function (data, passphrase) {
 
-  const key = Buffer.from(keccak256.array(passphrase));
+  const key = Buffer.from(hexToUint8Array(keccak256(passphrase)));
   const dataArray = Buffer.from(
     typeof data === 'string' ? hexToUint8Array(data) : new Uint8Array(data)
   )
@@ -204,9 +204,9 @@ exports.Transaction = class {
   }
 
   sign(key) {
-    const hash = keccak256.array(
+    const hash = hexToUint8Array(keccak256(
       this._createProtoTxData().serializeBinary()
-    );
+    ));
 
     const {
       signature,
