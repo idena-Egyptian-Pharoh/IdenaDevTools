@@ -12,8 +12,8 @@ exports.privateKeyToAddress = function (privateKey) {
   let pubKey = Buffer.from(secp256k1.publicKeyCreate(hexToUint8Array(privateKey), false));
   return '0x' + (keccak256(Buffer.from(secp256k1.publicKeyConvert(pubKey, false).slice(1))).slice(-20).toString('hex'))
 }
-exports.randomPK = function(){
-return toHexString(randomBytes(32));
+exports.randomPK = function () {
+  return toHexString(randomBytes(32));
 }
 exports.pubKeyToAddress = function (pubKey) {
   pubKey = pubKey.slice(0, 2) !== '0x' ? '0x' + pubKey : pubKey
@@ -25,9 +25,11 @@ exports.privateKeyToPubKey = function (privateKey) {
 exports.checkPrivateKey = function (privateKey) {
   return secp256k1.privateKeyVerify(privateKey);
 }
+
 function isHexPrefixed(str) {
   return str.slice(0, 2) === '0x'
 }
+
 function stripHexPrefix(str) {
   if (typeof str !== 'string') {
     return str
@@ -109,8 +111,12 @@ function hexToUint8Array(hexString) {
 
   return arrayBuffer;
 }
-exports.toHex = function (string){
-  return toHexString(toBuffer(string),true);
+exports.toHex = function (string) {
+  return toHexString(toBuffer(string), true);
+}
+exports.hexToString = function (str) {
+  const buf = Buffer.from(str);
+  return buf.toString('utf8');
 }
 exports.encryptPrivateKey = function (data, passphrase) {
 

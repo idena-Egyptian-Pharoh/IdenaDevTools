@@ -13,12 +13,14 @@ toastr.options = {
   "hideMethod": "fadeOut"
 }
 
-function randomPrivateKeyToElem(elem){
+function randomPrivateKeyToElem(elem) {
   document.getElementById(elem).value = Window.randomPrivateKey();
 }
-function randomSeedToElem(elem){
+
+function randomSeedToElem(elem) {
   document.getElementById(elem).value = Window.randomSeed();
 }
+
 function CopyElem(elem) {
   copyT(document.getElementById(elem).value);
 }

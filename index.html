@@ -116,14 +116,14 @@
                                 <label for="block3-nonce" class="col-sm-3 col-form-label pb-0">Nonce</label>
                                 <div class="col-sm-9 pb-0 input-group">
                                     <input class="form-control form-control-sm" type="text" id="block3-nonce" value="">
-                                    
+
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
                                 <label for="block3-epoch" class="col-sm-3 col-form-label pb-0">Epoch</label>
                                 <div class="col-sm-9 pb-0 input-group">
                                     <input class="form-control form-control-sm" type="text" id="block3-epoch" value="">
-                                   
+
                                 </div>
                             </div>
                             <div class="form-group row mb-1">
@@ -159,7 +159,7 @@
                             </div>
                             <div class="ml-auto mr-auto row mb-1">
                                 <a class="btn btn-outline-info btn-sm m-1" onclick="Eblock4();">Decode</a>
-                                
+
                             </div>
                             <div class="form-group row mb-1">
                                 <label for="block4-type" class="col-sm-3 col-form-label pb-0">Type</label>
@@ -257,16 +257,16 @@
                     <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
                         <div class="card card-body">
                             <p>PrivateKey to Address/PubKey/Paper</p>
-                            
+
                             <small class="form-text m-0 mb-1">PrivateKey </small>
-                                <div class="input-group mb-3">
-                                    <input type="text" class="form-control form-control-sm" id="block7-pk"
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block7-pk"
                                     placeholder="PrivateKey (64)">
-                                    <div class="input-group-append input-group-sm">
-                                        <a class="btn btn-outline-info btn-sm" type="button"
-                                            onclick="randomPrivateKeyToElem('block7-pk');">Random</a>
-                                    </div>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-info btn-sm" type="button"
+                                        onclick="randomPrivateKeyToElem('block7-pk');">Random</a>
                                 </div>
+                            </div>
                             <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
                                 onclick="Eblock7();">Convert</a>
                             <small class="form-text m-0 mb-1">Address </small>
@@ -337,6 +337,24 @@
                             </div>
 
                         </div>
+                        <div class="card card-body mt-3">
+                            <p>Hex To String</p>
+                            <small class="form-text m-0 mb-1">Hex </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block10-hex"
+                                placeholder="Hex">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock9();">Convert</a>
+                            <small class="form-text m-0 mb-1">String </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block10Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyElem('block10Output1');">Copy</a>
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
                     <div class="col-lg-12 col-sm-12 col-xs-12 p-2">
                         <div class="card card-body">
@@ -346,35 +364,35 @@
                                 <div class="col-10">
                                     <small id="OT-SeedToAddresses2-text" class="form-text m-0 mb-1">Seed(BIP39
                                         Mnemonic)</small>
-                                    
-                                        <div class="input-group mb-3">
-                                            <input type="text" class="form-control form-control-sm" id="block10-seed"
-                                        placeholder="Seed (12/24 word)">
-                                            <div class="input-group-append input-group-sm">
-                                                <a class="btn btn-outline-info btn-sm" type="button"
-                                                    onclick="randomSeedToElem('block10-seed');">Random</a>
-                                            </div>
+
+                                    <div class="input-group mb-3">
+                                        <input type="text" class="form-control form-control-sm" id="block11-seed"
+                                            placeholder="Seed (12/24 word)">
+                                        <div class="input-group-append input-group-sm">
+                                            <a class="btn btn-outline-info btn-sm" type="button"
+                                                onclick="randomSeedToElem('block11-seed');">Random</a>
                                         </div>
+                                    </div>
 
                                 </div>
                                 <div class="col-1">
                                     <small id="OT-SeedToAddresses2-text" class="form-text m-0 mb-1">index</small>
                                     <input class="form-control form-control-sm" value="0" type="number"
-                                        id="block10-index">
+                                        id="block11-index">
 
                                 </div>
                                 <div class="col-1">
                                     <small id="OT-SeedToAddresses2-text" class="form-text m-0 mb-1">Count</small>
                                     <input class="form-control form-control-sm" value="3" type="number"
-                                        id="block10-count">
+                                        id="block11-count">
                                 </div>
 
                             </div>
 
                             <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
-                                onclick="Eblock10();">Get</a>
+                                onclick="Eblock11();">Get</a>
                             <br>
-                            <textarea id="block10Output1" style="background-color: rgb(52, 58, 64); color: white;"
+                            <textarea id="block11Output1" style="background-color: rgb(52, 58, 64); color: white;"
                                 rows="3" disabled>
 ...
                                 </textarea>

@@ -6,6 +6,7 @@ const {
     pubKeyToAddress,
     privateKeyToPubKey,
     toHex,
+    hexToString,
     randomPK
 } = require('./script.js');
 const {
@@ -111,25 +112,29 @@ Window.Wblock9 = function () {
     let string = document.getElementById('block9-string').value;
     document.getElementById('block9Output1').value = toHex(string);
 }
-
 Window.Wblock10 = function () {
+    let hex = document.getElementById('block10-hex').value;
+    document.getElementById('bloc109Output1').value = hexToString(hex);
+}
 
-    let mnemonic = document.getElementById('block10-seed').value;
-    let index = parseInt(document.getElementById('block10-index').value) || 0;
-    let count = parseInt(document.getElementById('block10-count').value) || 1;
+Window.Wblock11 = function () {
+
+    let mnemonic = document.getElementById('block11-seed').value;
+    let index = parseInt(document.getElementById('block11-index').value) || 0;
+    let count = parseInt(document.getElementById('block11-count').value) || 1;
     let hdwallet = hdkey.fromMasterSeed(bip39.mnemonicToSeedSync(mnemonic));
 
     let wallet_hdpath = "m/44'/515'/0'/0/";
-    document.getElementById('block10Output1').innerHTML = '';
-    document.getElementById('block10Output1').rows = count * 3;
+    document.getElementById('block11Output1').innerHTML = '';
+    document.getElementById('block11Output1').rows = count * 3;
     for (let i = 0; i < count; i++) {
 
         let wallet = hdwallet.derivePath(wallet_hdpath + index).getWallet();
-        document.getElementById('block10Output1').innerHTML += 'Address (' + index + ') : ' + wallet.getAddressString();
-        document.getElementById('block10Output1').innerHTML += '\n';
-        document.getElementById('block10Output1').innerHTML += 'PrivateKey (' + index + ') : ' + wallet.getPrivateKeyString().slice(2);
-        document.getElementById('block10Output1').innerHTML += '\n';
-        document.getElementById('block10Output1').innerHTML += '\n';
+        document.getElementById('block11Output1').innerHTML += 'Address (' + index + ') : ' + wallet.getAddressString();
+        document.getElementById('block11Output1').innerHTML += '\n';
+        document.getElementById('block11Output1').innerHTML += 'PrivateKey (' + index + ') : ' + wallet.getPrivateKeyString().slice(2);
+        document.getElementById('block11Output1').innerHTML += '\n';
+        document.getElementById('block11Output1').innerHTML += '\n';
         index++;
     }
 }
