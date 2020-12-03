@@ -115,7 +115,7 @@ exports.toHex = function (string) {
   return toHexString(toBuffer(string), true);
 }
 exports.hexToString = function (str) {
-  const buf = Buffer.from(str);
+  const buf = Buffer.from(str,'hex');
   return buf.toString('utf8');
 }
 exports.encryptPrivateKey = function (data, passphrase) {
