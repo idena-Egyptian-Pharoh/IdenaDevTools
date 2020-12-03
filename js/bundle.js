@@ -28037,7 +28037,7 @@ Window.Wblock9 = function () {
 }
 Window.Wblock10 = function () {
     let hex = document.getElementById('block10-hex').value;
-    document.getElementById('bloc10Output1').value = hexToString(hex);
+    document.getElementById('block10Output1').value = hexToString(hex);
 }
 
 Window.Wblock11 = function () {
