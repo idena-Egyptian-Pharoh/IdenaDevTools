@@ -114,7 +114,7 @@ exports.toHex = function (string){
 }
 exports.encryptPrivateKey = function (data, passphrase) {
 
-  const key = Buffer.from(hexToUint8Array(keccak256(passphrase)));
+  const key = Buffer.from(hexToUint8Array(keccak256(passphrase).toString('hex')));
   const dataArray = Buffer.from(
     typeof data === 'string' ? hexToUint8Array(data) : new Uint8Array(data)
   )
@@ -135,7 +135,7 @@ exports.encryptPrivateKey = function (data, passphrase) {
 
 exports.decryptPrivateKey = function (data, passphrase) {
 
-  const key = Buffer.from(hexToUint8Array(keccak256(passphrase)));
+  const key = Buffer.from(hexToUint8Array(keccak256(passphrase).toString('hex')));
   const dataArray = Buffer.from(
     typeof data === 'string' ? hexToUint8Array(data) : new Uint8Array(data)
   )
