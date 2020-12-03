@@ -254,6 +254,64 @@
 
                         </div>
                     </div>
+
+                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
+                        <div class="card card-body">
+                            <p>PublicKey to Address</p>
+                            <small class="form-text m-0 mb-1">PublicKey </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block8-pubKey"
+                                placeholder="PublicKey (130)">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock8();">Convert</a>
+                            <small class="form-text m-0 mb-1">Address </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block8Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyElem('block8Output1');">Copy</a>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="card card-body mt-3">
+                            <p>String To Hex</p>
+                            <small class="form-text m-0 mb-1">String </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block9-string"
+                                placeholder="String">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock9();">Convert</a>
+                            <small class="form-text m-0 mb-1">Hex </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block9Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyElem('block9Output1');">Copy</a>
+                                </div>
+                            </div>
+
+                        </div>
+                        <div class="card card-body mt-3">
+                            <p>Hex To String</p>
+                            <small class="form-text m-0 mb-1">Hex </small>
+                            <input type="text" class="form-control form-control-sm mb-1" id="block10-hex"
+                                placeholder="Hex">
+                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
+                                onclick="Eblock10();">Convert</a>
+                            <small class="form-text m-0 mb-1">String </small>
+                            <div class="input-group mb-3">
+                                <input type="text" class="form-control form-control-sm" id="block10Output1" value=""
+                                    placeholder="..." disabled>
+                                <div class="input-group-append input-group-sm">
+                                    <a class="btn btn-outline-success btn-sm" type="button"
+                                        onclick="CopyElem('block10Output1');">Copy</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
                     <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
                         <div class="card card-body">
                             <p>PrivateKey to Address/PubKey/Paper</p>
@@ -299,65 +357,6 @@
 
                         </div>
                     </div>
-                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
-                        <div class="card card-body">
-                            <p>PublicKey to Address</p>
-                            <small class="form-text m-0 mb-1">PublicKey </small>
-                            <input type="text" class="form-control form-control-sm mb-1" id="block8-pubKey"
-                                placeholder="PublicKey (130)">
-                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
-                                onclick="Eblock8();">Convert</a>
-                            <small class="form-text m-0 mb-1">Address </small>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control form-control-sm" id="block8Output1" value=""
-                                    placeholder="..." disabled>
-                                <div class="input-group-append input-group-sm">
-                                    <a class="btn btn-outline-success btn-sm" type="button"
-                                        onclick="CopyElem('block8Output1');">Copy</a>
-                                </div>
-                            </div>
-
-                        </div>
-
-                        <div class="card card-body mt-3">
-                            <p>String To Hex</p>
-                            <small class="form-text m-0 mb-1">String </small>
-                            <input type="text" class="form-control form-control-sm mb-1" id="block9-string"
-                                placeholder="String">
-                            <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
-                                onclick="Eblock9();">Convert</a>
-                            <small class="form-text m-0 mb-1">Hex </small>
-                            <div class="input-group mb-3">
-                                <input type="text" class="form-control form-control-sm" id="block9Output1" value=""
-                                    placeholder="..." disabled>
-                                <div class="input-group-append input-group-sm">
-                                    <a class="btn btn-outline-success btn-sm" type="button"
-                                        onclick="CopyElem('block9Output1');">Copy</a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6 col-sm-12 col-xs-12 p-2">
-                    <div class="card card-body mt-3">
-                        <p>Hex To String</p>
-                        <small class="form-text m-0 mb-1">Hex </small>
-                        <input type="text" class="form-control form-control-sm mb-1" id="block10-hex"
-                            placeholder="Hex">
-                        <a class="btn btn-outline-info btn-sm w-50  ml-auto  mr-auto mt-1 md-1"
-                            onclick="Eblock9();">Convert</a>
-                        <small class="form-text m-0 mb-1">String </small>
-                        <div class="input-group mb-3">
-                            <input type="text" class="form-control form-control-sm" id="block10Output1" value=""
-                                placeholder="..." disabled>
-                            <div class="input-group-append input-group-sm">
-                                <a class="btn btn-outline-success btn-sm" type="button"
-                                    onclick="CopyElem('block10Output1');">Copy</a>
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
                     <div class="col-lg-12 col-sm-12 col-xs-12 p-2">
                         <div class="card card-body">
                             <p>Seed(BIP39 Mnemonic) to Addresses/PrivateKeys</p>
