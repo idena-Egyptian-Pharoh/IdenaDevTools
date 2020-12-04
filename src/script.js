@@ -212,9 +212,7 @@ exports.Transaction = class {
   }
 
   sign(key) {
-    const hash = hexToUint8Array(keccak256(
-      this._createProtoTxData().serializeBinary()
-    ));
+    const hash = hexToUint8Array(keccak256(this._createProtoTxData().serializeBinary().toString('hex')).toString('hex'));
 
     const {
       signature,
