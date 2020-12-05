@@ -68,7 +68,6 @@ Window.Wblock3 = function () {
 
 Window.Wblock4 = function () {
 
-    alert(new Transaction().fromHex(document.getElementById('block4Input').value).toJson());
     let tx = JSON.parse(new Transaction().fromHex(document.getElementById('block4Input').value).toJson());
     document.getElementById('block4-nonce').value = tx.nonce;
     document.getElementById('block4-epoch').value = tx.epoch;
