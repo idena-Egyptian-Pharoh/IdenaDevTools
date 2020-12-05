@@ -1,4 +1,5 @@
-const keccak256 = require('keccak256');
+const keccak256 = require('js-sha3').keccak256;
+const sha3_256 = require('js-sha3').sha3_256;
 const {
   createDecipheriv,
   createCipheriv,
@@ -10,14 +11,14 @@ const secp256k1 = require('secp256k1');
 
 exports.privateKeyToAddress = function (privateKey) {
   let pubKey = Buffer.from(secp256k1.publicKeyCreate(hexToUint8Array(privateKey), false));
-  return '0x' + (keccak256(Buffer.from(secp256k1.publicKeyConvert(pubKey, false).slice(1))).slice(-20).toString('hex'))
+  return toHexString(keccak256.array(pubKey.slice(1)).slice(12),true);
 }
 exports.randomPK = function () {
   return toHexString(randomBytes(32));
 }
 exports.pubKeyToAddress = function (pubKey) {
   pubKey = pubKey.slice(0, 2) !== '0x' ? '0x' + pubKey : pubKey
-  return '0x' + (keccak256(Buffer.from(hexToUint8Array(pubKey))).slice(-20).toString('hex'));
+  return toHexString(keccak256.array(hexToUint8Array(pubKey)).slice(12),true);
 }
 exports.privateKeyToPubKey = function (privateKey) {
   return toHexString(secp256k1.publicKeyCreate(hexToUint8Array(privateKey), false).slice(1));
@@ -119,8 +120,8 @@ exports.hexToString = function (str) {
   return buf.toString('utf8');
 }
 exports.encryptPrivateKey = function (data, passphrase) {
-
-  const key = Buffer.from(hexToUint8Array(keccak256(passphrase).toString('hex')));
+  
+  const key = Buffer.from(sha3_256.array(passphrase));
   const dataArray = Buffer.from(
     typeof data === 'string' ? hexToUint8Array(data) : new Uint8Array(data)
   )
@@ -141,7 +142,7 @@ exports.encryptPrivateKey = function (data, passphrase) {
 
 exports.decryptPrivateKey = function (data, passphrase) {
 
-  const key = Buffer.from(hexToUint8Array(keccak256(passphrase).toString('hex')));
+  const key = Buffer.from(sha3_256.array(passphrase));
   const dataArray = Buffer.from(
     typeof data === 'string' ? hexToUint8Array(data) : new Uint8Array(data)
   )
@@ -212,8 +213,9 @@ exports.Transaction = class {
   }
 
   sign(key) {
-    const hash = hexToUint8Array(keccak256(this._createProtoTxData().serializeBinary().toString('hex')).toString('hex'));
-
+    const hash = keccak256.array(
+      this._createProtoTxData().serializeBinary()
+    );
     const {
       signature,
       recid
