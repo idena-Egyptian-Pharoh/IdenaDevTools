@@ -87,3 +87,7 @@ function Eblock9() {
 function Eblock10() {
   Window.Wblock10();
 }
+
+function Eblock11() {
+  Window.Wblock11();
+}
